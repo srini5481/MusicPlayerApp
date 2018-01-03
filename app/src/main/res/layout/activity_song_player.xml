@@ -1,9 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context="com.example.android.musicplayerapp.SongPlayer">
 
-</android.support.constraint.ConstraintLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+
+
+
+       <ImageView
+           style="@style/playerimgViewStyle"
+           android:src="@drawable/music"/>
+
+       <View style="@style/dividerLineView" />
+
+       <RelativeLayout
+           android:id="@+id/songDetails"
+           android:layout_width="match_parent"
+           android:layout_height="90dp"
+           android:background="@color/defaultColor"
+           android:layout_gravity="center"
+           >
+
+
+
+           <TextView
+               android:id="@+id/songTextView"
+               style="@style/playersongDetail"/>
+
+           <TextView
+               android:id="@+id/singerTextView"
+               style="@style/playersongDetail"
+               android:layout_below="@+id/songTextView"/>
+
+
+           <android.support.design.widget.FloatingActionButton
+               android:id="@+id/fab"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="bottom|end"
+               android:layout_marginBottom="8dp"
+               android:layout_marginRight="8dp"
+               android:layout_toRightOf="@+id/songTextView"
+               android:src="@drawable/ic_play_arrow_white_24dp"
+               />
+
+
+       </RelativeLayout>
+
+       <View style="@style/dividerLineView" />
+
+       <LinearLayout
+           android:id="@+id/playerOptions"
+           android:layout_width="match_parent"
+           android:layout_height="70dp"
+           android:background="@color/defaultColor"
+           >
+
+           <ImageView
+               style="@style/musicIconDetails"
+               android:src="@drawable/ic_shuffle_white_24dp"/>
+
+           <ImageView
+               style="@style/musicIconDetails"
+               android:src="@drawable/ic_skip_previous_white_24dp"/>
+           <ImageView
+               style="@style/musicIconDetails"
+               android:src="@drawable/ic_play_arrow_white_24dp"/>
+
+           <ImageView
+               style="@style/musicIconDetails"
+               android:src="@drawable/ic_skip_next_white_24dp"/>
+
+           <ImageView
+               style="@style/musicIconDetails"
+               android:src="@drawable/ic_repeat_white_24dp"/>
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+
+
+</ScrollView>

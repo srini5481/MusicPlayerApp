@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="hindi">#EF6C00</color>
+    <color name="telugu">#2E7D32</color>
+    <color name= "intialTelegu">#1B5E20</color>
+    <color name="kannada">#3E2723</color>
+    <color name="other">#00BCD4</color>
+    <color name="otherintailcolor">#BF360C</color>
+    <color name="defaultColor">#6A1B9A</color>
+    <color name="whitecolor">#FFFFFF</color>
+    <color name="firstcolor">#AD1457</color>
+
+
 </resources>

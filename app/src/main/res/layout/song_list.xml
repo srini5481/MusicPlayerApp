@@ -10,23 +10,21 @@
 
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        style="@style/songListImageView"
         android:id="@+id/imageid"
         android:src="@drawable/hindi"/>
+
+    <View style="@style/verticaldividerLineView"
+        android:layout_toRightOf="@+id/imageid" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Song"
-        android:layout_toRightOf="@+id/imageid"
-        android:text="hindi Song"/>
+        android:id="@+id/song"
+        style="@style/songListTextView"
+        android:layout_toRightOf="@+id/imageid"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Singer"
-        android:text="Singer 1"
+        android:id="@+id/singer"
+        style="@style/songListTextView"
         android:layout_toRightOf="@+id/imageid"
-        android:layout_below="@+id/Song"/>
+        android:layout_below="@+id/song"/>
 
 </RelativeLayout>

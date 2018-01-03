@@ -8,4 +8,91 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="Hindi" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/hindi</item>
+
+    </style>
+
+    <style name="Telugu" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/telugu</item>
+
+    </style>
+
+    <style name="Kannada" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/kannada</item>
+
+    </style>
+
+    <style name="Other" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/other</item>
+
+    </style>
+
+    <style name="categoryStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+
+
+    </style>
+
+    <style name="playerimgViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">350dp</item>
+        <item name="android:layout_gravity">fill_horizontal</item>
+
+    </style>
+
+    <style name="playersongDetail">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:layout_gravity">center</item>
+
+    </style>
+    <style name="musicIconDetails">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:textColor">@color/defaultColor</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    
+    <style name="dividerLineView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">3dp</item>
+        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+
+    <style name="verticaldividerLineView">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="songListImageView">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:padding">4dp</item>
+
+    </style>
+
+    <style name="songListTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+
 </resources>

@@ -2,6 +2,8 @@ package com.example.android.musicplayerapp;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,18 +20,13 @@ import java.util.ArrayList;
 public class SongListAdapter extends ArrayAdapter<HindSongDetails> {
 
 
-
-
     public  SongListAdapter(Activity context , ArrayList<HindSongDetails> hindiSongDetails){
         super(context,0, hindiSongDetails);
 
     }
-
-
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Check if an existing view is being reused, otherwise inflate the view
+
         View listItemView = convertView;
 
         if (listItemView == null) {
@@ -37,22 +34,33 @@ public class SongListAdapter extends ArrayAdapter<HindSongDetails> {
                     R.layout.song_list, parent, false);
         }
 
-        // Get the {@link Word} object located at this position in the list
         HindSongDetails currentSong = getItem(position);
+        ImageView imgView = (ImageView) listItemView.findViewById(R.id.imageid) ;
 
-        // Find the TextView in the list_item.xml layout with the ID miwok_text_view.
-        TextView songTextView = (TextView) listItemView.findViewById(R.id.Song);
+        if (currentSong.getMlang().equalsIgnoreCase("Hindi")){
+            imgView.setImageResource(R.drawable.hindi);
+            imgView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.hindi));
+            listItemView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.hindi));
+        } else if (currentSong.getMlang().equalsIgnoreCase("Telugu")){
+            imgView.setImageResource(R.drawable.telugu);
+            imgView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.telugu));
+            listItemView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.telugu));
+        } else if (currentSong.getMlang().equalsIgnoreCase("Kannada")){
+            imgView.setImageResource(R.drawable.kannada);
+            imgView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.kannada));
+            listItemView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.kannada));
+        } else {
+            imgView.setImageResource(R.drawable.other);
+            imgView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.other));
+            listItemView.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.other));
+        }
 
-        //TextView categoryTextView = (TextView) listItemView.findViewById(R.id.Category);
-
+        TextView songTextView = (TextView) listItemView.findViewById(R.id.song);
         songTextView.setText(currentSong.getmHindiSong());
-
-        TextView singerTextView = (TextView) listItemView.findViewById(R.id.Singer);
-
+        songTextView.setTextColor(ContextCompat.getColor(getContext(),R.color.whitecolor));
+        TextView singerTextView = (TextView) listItemView.findViewById(R.id.singer);
         singerTextView.setText(currentSong.getmHindiSongSinger());
-
-
-        //ImageView catImage =(ImageView) listItemView.findViewById(R.id.imageid);
+        singerTextView.setTextColor(ContextCompat.getColor(getContext(),R.color.whitecolor));
 
         return listItemView;
     }

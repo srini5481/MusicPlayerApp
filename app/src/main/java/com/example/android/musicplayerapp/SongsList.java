@@ -3,6 +3,7 @@ package com.example.android.musicplayerapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -11,71 +12,61 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SongsList extends AppCompatActivity {
+
+    private Category lang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        lang = getIntent().getParcelableExtra("Category");
+        Log.v("MainActivity",lang.getMlanguage() );
+        if (lang.getMlanguage().equalsIgnoreCase("Hindi")){
+            setTheme(R.style.Hindi);
+            setTitle("Hindi Song List");
+        }else if (lang.getMlanguage().equalsIgnoreCase("Telugu")) {
+            setTheme(R.style.Telugu);
+            setTitle("Telugu Song List");
+        }else if (lang.getMlanguage().equalsIgnoreCase("Kannada")) {
+            setTheme(R.style.Kannada);
+            setTitle("Kannada Song List");
+        }else if (lang.getMlanguage().equalsIgnoreCase("Other")) {
+            setTheme(R.style.Other);
+            setTitle("Other Lang Song List");
+        }
         setContentView(R.layout.activity_songs_list);
 
+        final ArrayList<HindSongDetails> hindiSongDetails = new ArrayList<HindSongDetails>();
 
-        ArrayList<HindSongDetails> hindiSongDetails = new ArrayList<HindSongDetails>();
+        String song, singer;
 
-        hindiSongDetails.add(new HindSongDetails("HindiSong1","HindiSong1 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong2","HindiSong2 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong3","HindiSong3 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong4","HindiSong4 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong5","HindiSong5 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong6","HindiSong6 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong7","HindiSong6 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong8","HindiSong7 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong9","HindiSong8 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong10","HindiSong9 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong11","HindiSong10 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong12","HindiSong11 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong13","HindiSong12 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong14","HindiSong13 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong15","HindiSong15 Singer"));
-        hindiSongDetails.add(new HindSongDetails("HindiSong16","HindiSong16 Singer"));
+         HindSongDetails.mlang = lang.getMlanguage();
 
+        for (int i =1; i<=20; i++){
 
-        SongListAdapter songListAdapter = new SongListAdapter(this,hindiSongDetails);
+            song = HindSongDetails.mlang + "Song" + i;
+            singer = song +" Singer";
+            hindiSongDetails.add(new HindSongDetails(song,singer));
+        }
+
+        SongListAdapter songListAdapter = new SongListAdapter(this, hindiSongDetails);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(songListAdapter);
 
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
+                                    final int position, long id) {
 
-                // DO something
-
-                /*Toast.makeText(
-                        getApplicationContext(),
-                        ((TextView) v.findViewById(R.id.Category))
-                                .getText(), Toast.LENGTH_SHORT).show();*/
-
-                TextView langCatTextView = (TextView) findViewById(R.id.Song);
-
-                langCatTextView.setOnClickListener(new View.OnClickListener() {
-                    // The code in this method will be executed when the numbers View is clicked on.
-                    @Override
-                    public void onClick(View view) {
-                        Intent numbersIntent = new Intent(SongsList.this, SongPlayer.class);
-                        startActivity(numbersIntent);
-                    }
-                });
-
-            }
+                Intent numbersIntent = new Intent(SongsList.this, SongPlayer.class);
+                numbersIntent.putExtra("Song", hindiSongDetails.get(position));
+                startActivity(numbersIntent);
+           }
         });
-
-
-
 
     }
 }
